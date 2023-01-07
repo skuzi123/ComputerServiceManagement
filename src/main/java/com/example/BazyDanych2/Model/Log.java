@@ -16,10 +16,10 @@ public class Log extends IdEntity{
             length = 20)
     private String operation;
 
-    @ManyToOne
-    @JoinColumn(name = "client_id",
-                referencedColumnName = "id")
-    private Client client;
+//    @ManyToOne
+//    @JoinColumn(name = "client_id",
+//                referencedColumnName = "id")
+//    private Client client;
 //    @Column(name = "client_id",
 //            nullable = false)
 //    private int clientId;

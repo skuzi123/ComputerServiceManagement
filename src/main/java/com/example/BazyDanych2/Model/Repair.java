@@ -23,9 +23,9 @@ public class Repair extends IdEntity{
     private RepairLocation repairLocation;
 
     @ManyToOne
-    @JoinColumn(name = "worker_id",
+    @JoinColumn(name = "user_id",
                 referencedColumnName = "id" )
-    private Worker worker;
+    private User user;
 
     @ManyToOne
     @JoinColumn(name = "fault_id",
@@ -36,19 +36,7 @@ public class Repair extends IdEntity{
             length = 3)
     private char backup;
 
-    //    @Column(name = "computer_id",
-//            nullable = false)
-//    private int computerId;
-//    @Column(name = "location_id",
-//            nullable = false)
-//    private int locationId;
-//    @Column(name = "worker_id",
-//            nullable = false)
-//    private int workerId;
-//    @Column(name = "fault_id",
-//            nullable = false)
-//    private int faultId;
-    //add repart_start and repair_end
+
 
 
 

@@ -34,11 +34,8 @@ public class PersonalData extends IdEntity {
 
     @OneToMany(mappedBy = "personalData",
             cascade = {CascadeType.MERGE, CascadeType.REMOVE}, fetch = FetchType.EAGER)
-    private List<Client> clients = new ArrayList<>();
+    private List<User> users = new ArrayList<>();
 
-    @OneToMany(mappedBy = "personalData",
-            cascade = {CascadeType.MERGE, CascadeType.REMOVE}, fetch = FetchType.EAGER)
-    private List<Worker> workers = new ArrayList<>();
 
 
 }

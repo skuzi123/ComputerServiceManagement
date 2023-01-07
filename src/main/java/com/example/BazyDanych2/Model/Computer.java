@@ -15,9 +15,9 @@ import java.util.List;
 @Table(name = "Computer")
 public class Computer extends IdEntity{
     @ManyToOne(cascade = {CascadeType.MERGE})
-    @JoinColumn(name = "client_id",
+    @JoinColumn(name = "user_id",
                 referencedColumnName = "id")
-    private Client client;
+    private User user;
 
 
     @OneToMany(mappedBy = "computer",
