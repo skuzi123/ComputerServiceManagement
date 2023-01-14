@@ -32,9 +32,6 @@ public class User extends IdEntity{
     @Enumerated(EnumType.STRING)
     private Role role;
 
-//    @Column(name = "role",
-//           nullable = false)
-//    private Role role;
     @OneToMany(mappedBy = "user",
             cascade = {CascadeType.MERGE, CascadeType.REMOVE}, fetch = FetchType.EAGER)
     private List<Repair> repairs = new ArrayList<>();
