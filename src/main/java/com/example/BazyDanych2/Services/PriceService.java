@@ -4,7 +4,6 @@ import com.example.BazyDanych2.Repositories.PriceRepository;
 import com.example.BazyDanych2.Model.Price;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -30,7 +29,7 @@ public class PriceService {
 
     public Price getPriceByFaultId(Long id){
         return priceRepository.findByFaultId(id)
-                .orElseThrow(() -> new UsernameNotFoundException(String.format(PRICE_NOT_FOUND)));
+                .orElseThrow();
     }
 
     public Price savePrice(Price price){

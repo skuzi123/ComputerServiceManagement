@@ -1,5 +1,7 @@
 package com.example.BazyDanych2;
 
+import com.example.BazyDanych2.Model.User;
+import com.example.BazyDanych2.Services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -11,14 +13,6 @@ import java.util.List;
 @SpringBootApplication
 @RestController
 public class BazyDanych2Application {
-//    @Autowired
-//    private UserService userService;
-//
-//	@GetMapping("/getAllUsers")
-//	public List<User> findAllUsers(){
-//		return userService.getAllUsers();
-//	}
-
 
 
 	public static void main(String[] args) {

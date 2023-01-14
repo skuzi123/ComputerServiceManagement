@@ -4,7 +4,6 @@ import com.example.BazyDanych2.Model.Part;
 import com.example.BazyDanych2.Repositories.PartRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -31,7 +30,7 @@ public class PartService {
 
     public Part getPartByPartName(String partName){
         return partRepository.findByPartName(partName)
-                .orElseThrow(() -> new UsernameNotFoundException(String.format(PART_NOT_FOUND)));
+                .orElseThrow();
     }
 
     public Part savePart(Part part){

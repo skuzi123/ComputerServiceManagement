@@ -4,7 +4,6 @@ import com.example.BazyDanych2.Model.RepairLocation;
 import com.example.BazyDanych2.Repositories.RepairLocationRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -31,7 +30,7 @@ public class RepairLocationService {
 
     public RepairLocation getRepairLocationByLocationName(String locationName){
         return repairLocationRepository.findByLocationName(locationName)
-                .orElseThrow(() -> new UsernameNotFoundException(String.format(REPAIR_LOCATION_NOT_FOUND)));
+                .orElseThrow();
     }
 
     public RepairLocation saveRepairLocation(RepairLocation repairLocation){

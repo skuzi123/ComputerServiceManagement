@@ -1,5 +1,6 @@
 package com.example.BazyDanych2.Model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.*;
 

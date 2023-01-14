@@ -19,7 +19,8 @@ public class PersonalDataService {
         this.personalDataRepository = personalDataRepository;
     }
      public List<PersonalData> getAll(){
-        return personalDataRepository.findAll();
+        List<PersonalData> personalData = personalDataRepository.findAll();
+        return personalData;
      }
 
      public PersonalData getDataById(Long id){

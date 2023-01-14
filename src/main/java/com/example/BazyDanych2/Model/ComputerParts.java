@@ -1,5 +1,6 @@
 package com.example.BazyDanych2.Model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -14,11 +15,13 @@ public class ComputerParts extends IdEntity{
     @ManyToOne(cascade = {CascadeType.MERGE})
     @JoinColumn(name = "computer_id",
                 referencedColumnName = "id")
+    @JsonIgnore
     private Computer computer;
 
     @ManyToOne(cascade = {CascadeType.MERGE})
     @JoinColumn(name = "part_type",
                 referencedColumnName = "id")
+    @JsonIgnore
     private Part part;
 
 

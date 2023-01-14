@@ -4,7 +4,6 @@ import com.example.BazyDanych2.Model.Computer;
 import com.example.BazyDanych2.Repositories.ComputerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -29,9 +28,9 @@ public class ComputerService {
         return foundComputer.orElseThrow();
     }
 
-    public Computer getComputerByClientId(Long id){
-        return computerRepository.findByClientId(id)
-                .orElseThrow(() -> new UsernameNotFoundException(String.format(COMPUTER_NOT_FOUND)));
+    public Computer getComputerByUserId(Long id){
+        return computerRepository.findByUserId(id)
+                .orElseThrow();
     }
 
     public Computer saveComputer(Computer computer){
@@ -41,7 +40,7 @@ public class ComputerService {
     public String deleteComputer(Long id){
         Computer computerToDelete = getComputerById(id);
         computerRepository.delete(computerToDelete);
-        return "Worker with id: " + id + " was deleted!";
+        return "Computer with id: " + id + " was deleted!";
     }
 
 }

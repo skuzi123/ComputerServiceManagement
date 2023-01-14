@@ -4,7 +4,6 @@ import com.example.BazyDanych2.Model.User;
 import com.example.BazyDanych2.Repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -30,8 +29,9 @@ public class UserService {
 
     public User getUserByWorkName(String workName){
         return userRepository.findByWorkName(workName)
-                .orElseThrow(() -> new UsernameNotFoundException(String.format(USER_NOT_FOUND)));
+                .orElseThrow();
     }
+
 
     public User saveUser(User user){
         return userRepository.saveAndFlush(user);
