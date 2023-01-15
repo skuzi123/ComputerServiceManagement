@@ -1,5 +1,7 @@
 package com.example.BazyDanych2.Services;
 
+import com.example.BazyDanych2.Model.Computer;
+import com.example.BazyDanych2.Model.ComputerParts;
 import com.example.BazyDanych2.Model.Part;
 import com.example.BazyDanych2.Repositories.PartRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,10 +15,14 @@ import java.util.Optional;
 public class PartService {
     private static final String PART_NOT_FOUND = "Part with this id doesn't exist!!!";
     private PartRepository partRepository;
+//    private final ComputerPartsService computerPartsService;
+//    private final ComputerService computerService;
 
     @Autowired
     public PartService(@Qualifier("partRepository") PartRepository partRepository) {
         this.partRepository = partRepository;
+//        this.computerPartsService = computerPartsService;
+//        this.computerService = computerService;
     }
 
     public List<Part> getAllParts(){
@@ -33,9 +39,25 @@ public class PartService {
                 .orElseThrow();
     }
 
-    public Part savePart(Part part){
-        return partRepository.saveAndFlush(part);
+    public Part createPart(Part part) {
+        return this.partRepository.saveAndFlush(part);
     }
+
+    public Part updatePart(Part part) {
+        return this.partRepository.save(part);
+    }
+
+//    public Part savePart(Part part, Long computerId){
+//        Computer computer = computerService.getComputerById(computerId);
+//        Part resultPart = partRepository.save(part);
+//
+//        ComputerParts computerParts = new ComputerParts();
+//        computerParts.setPart(resultPart);
+//        computerParts.setComputer(computer);
+//        computerPartsService.saveComputerParts(computerParts);
+//
+//        return resultPart;
+//    }
 
     public String deletePart(Long id){
         Part partToDelete = getPartById(id);

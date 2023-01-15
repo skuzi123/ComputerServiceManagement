@@ -34,10 +34,13 @@ public class ComputerPartsService {
                 .orElseThrow();
     }
 
-    public ComputerParts saveComputerParts(ComputerParts computerParts){
+    public ComputerParts createComputerParts(ComputerParts computerParts){
         return computerPartsRepository.saveAndFlush(computerParts);
     }
 
+    public ComputerParts updateComputerParts(ComputerParts computerParts){
+        return computerPartsRepository.save(computerParts);
+    }
     public String deleteComputerParts(Long id){
         ComputerParts computerPartsToDelete = getComputerPartsById(id);
         computerPartsRepository.delete(computerPartsToDelete);

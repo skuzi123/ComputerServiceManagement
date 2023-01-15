@@ -34,17 +34,26 @@ public class UserController {
 
       return ResponseEntity.ok(userService.getUserById(id));
     }
-
-
     @PostMapping(path = "/post")
     public ResponseEntity<User> addUser(@RequestBody User user){
 
-        PersonalData personalData = user.getPersonalData();
-        if (personalDataService.getDataById(personalData.getId()) == null) {
-            personalDataService.saveData(personalData);
-        }
-        return ResponseEntity.ok(userService.saveUser(user));
+        return ResponseEntity.ok(userService.createUser(user));
     }
+    @PutMapping(path = "/update")
+    public ResponseEntity<User> updateUser(@RequestBody User user){
+
+        return ResponseEntity.ok(userService.updateUser(user));
+    }
+
+//    @PostMapping(path = "/post")
+//    public ResponseEntity<User> addUser(@RequestBody User user){
+//
+//        PersonalData personalData = user.getPersonalData();
+//        if (personalDataService.getDataById(personalData.getId()) == null) {
+//            personalDataService.saveData(personalData);
+//        }
+//        return ResponseEntity.ok(userService.saveUser(user));
+//    }
     @DeleteMapping(path = "/delete/{id}")
     public ResponseEntity<String> deleteUser(@PathVariable("id") Long id){
 

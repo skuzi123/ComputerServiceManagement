@@ -33,8 +33,12 @@ public class UserService {
     }
 
 
-    public User saveUser(User user){
+    public User createUser(User user){
         return userRepository.saveAndFlush(user);
+    }
+
+    public User updateUser(User user){
+        return userRepository.save(user);
     }
 
     public String deleteUser(Long id){

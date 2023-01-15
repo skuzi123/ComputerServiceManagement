@@ -32,7 +32,13 @@ public class RepairLocationController {
     @PostMapping(path = "/post")
     public ResponseEntity<RepairLocation> addRepair(@RequestBody RepairLocation repairLocation){
 
-        return ResponseEntity.ok(repairLocationService.saveRepairLocation(repairLocation));
+        return ResponseEntity.ok(repairLocationService.createRepairLocation(repairLocation));
+    }
+
+    @PutMapping(path = "/update")
+    public ResponseEntity<RepairLocation> updateRepair(@RequestBody RepairLocation repairLocation){
+
+        return ResponseEntity.ok(repairLocationService.updateRepairLocation(repairLocation));
     }
     @DeleteMapping(path = "/delete/{id}")
     public ResponseEntity<String> deleteRepairLocation(@PathVariable("id") Long id){

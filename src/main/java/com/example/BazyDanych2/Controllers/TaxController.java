@@ -32,7 +32,13 @@ public class TaxController {
     @PostMapping(path = "/post")
     public ResponseEntity<Tax> addTax(@RequestBody Tax tax){
 
-        return ResponseEntity.ok(taxService.saveTax(tax));
+        return ResponseEntity.ok(taxService.createTax(tax));
+    }
+
+    @PutMapping(path = "/update")
+    public ResponseEntity<Tax> updateTax(@RequestBody Tax tax){
+
+        return ResponseEntity.ok(taxService.updateTax(tax));
     }
     @DeleteMapping(path = "/delete/{id}")
     public ResponseEntity<String> deleteFault(@PathVariable("id") Long id){

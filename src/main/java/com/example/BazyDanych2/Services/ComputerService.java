@@ -30,11 +30,14 @@ public class ComputerService {
 
     public Computer getComputerByUserId(Long id){
         return computerRepository.findByUserId(id)
-                .orElseThrow();
+                .orElse(null);
     }
 
-    public Computer saveComputer(Computer computer){
+    public Computer createComputer(Computer computer){
         return computerRepository.saveAndFlush(computer);
+    }
+    public Computer updateComputer(Computer computer){
+        return computerRepository.save(computer);
     }
 
     public String deleteComputer(Long id){

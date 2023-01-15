@@ -33,8 +33,12 @@ public class RepairLocationService {
                 .orElseThrow();
     }
 
-    public RepairLocation saveRepairLocation(RepairLocation repairLocation){
+    public RepairLocation createRepairLocation(RepairLocation repairLocation){
         return repairLocationRepository.saveAndFlush(repairLocation);
+    }
+
+    public RepairLocation updateRepairLocation(RepairLocation repairLocation){
+        return repairLocationRepository.save(repairLocation);
     }
 
     public String deleteRepairLocation(Long id){

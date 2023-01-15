@@ -17,7 +17,7 @@ import java.util.List;
 @Entity
 @Table(name = "Computer")
 public class Computer extends IdEntity{
-    @ManyToOne(cascade = {CascadeType.MERGE})
+    @ManyToOne
     @JoinColumn(name = "user_id",
                 referencedColumnName = "id")
     @JsonIgnore
@@ -27,6 +27,8 @@ public class Computer extends IdEntity{
             cascade = {CascadeType.MERGE, CascadeType.REMOVE}, fetch = FetchType.EAGER)
     @JsonIgnore
     private List<ComputerParts> computerParts = new ArrayList<>();
+
+    @JsonIgnore
     @OneToMany(mappedBy = "computer",
             cascade = {CascadeType.MERGE, CascadeType.REMOVE}, fetch = FetchType.EAGER)
     private List<Repair> repairs = new ArrayList<>();

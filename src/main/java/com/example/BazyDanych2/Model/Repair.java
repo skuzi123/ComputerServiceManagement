@@ -4,6 +4,8 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.time.LocalDate;
+
 @Getter
 @Setter
 @NoArgsConstructor
@@ -16,17 +18,14 @@ public class Repair extends IdEntity{
     @ManyToOne
     @JoinColumn(name = "computer_id",
                 referencedColumnName = "id" )
-    @JsonIgnore
     private Computer computer;
 
     @ManyToOne
     @JoinColumn(name = "location_id",
                 referencedColumnName = "id" )
-    @JsonIgnore
     private RepairLocation repairLocation;
 
     @ManyToOne
-    @JsonIgnore
     @JoinColumn(name = "user_id",
                 referencedColumnName = "id" )
     private User user;
@@ -34,9 +33,12 @@ public class Repair extends IdEntity{
     @ManyToOne
     @JoinColumn(name = "fault_id",
                 referencedColumnName = "id" )
-    @JsonIgnore
     private Fault fault;
-
+    @Column(name = "repair_start",
+            nullable = false)
+    private LocalDate repairStart;
+    @Column(name = "repair_end")
+    private LocalDate repairEnd;
     @Column(name = "back_up",
             nullable = false,
             length = 3)

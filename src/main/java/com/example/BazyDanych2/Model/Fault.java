@@ -19,11 +19,11 @@ public class Fault extends IdEntity{
             nullable = false,
             length = 50)
     private String cause;
-
+    @JsonIgnore
     @OneToMany(mappedBy = "fault",
             cascade = {CascadeType.MERGE, CascadeType.REMOVE}, fetch = FetchType.EAGER)
     private List<Repair> repairs = new ArrayList<>();
-
+@JsonIgnore
     @OneToMany(mappedBy = "fault",
             cascade = {CascadeType.MERGE, CascadeType.REMOVE}, fetch = FetchType.EAGER)
     private List<Price> prices = new ArrayList<>();

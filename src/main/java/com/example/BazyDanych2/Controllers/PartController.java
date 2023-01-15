@@ -1,7 +1,6 @@
 package com.example.BazyDanych2.Controllers;
 
 import com.example.BazyDanych2.Model.Part;
-import com.example.BazyDanych2.Model.Tax;
 import com.example.BazyDanych2.Services.PartService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -32,7 +31,13 @@ public class PartController {
     @PostMapping(path = "/post")
     public ResponseEntity<Part> addPart(@RequestBody Part part){
 
-        return ResponseEntity.ok(partService.savePart(part));
+        return ResponseEntity.ok(partService.createPart(part));
+    }
+
+    @PutMapping(path = "/update")
+    public ResponseEntity<Part> updatePart(@RequestBody Part part){
+
+        return ResponseEntity.ok(partService.updatePart(part));
     }
     @DeleteMapping(path = "/delete/{id}")
     public ResponseEntity<String> deletePart(@PathVariable("id") Long id){

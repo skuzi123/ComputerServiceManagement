@@ -26,8 +26,12 @@ public class FaultService {
         return foundFault.orElse(null);
     }
 
-    public Fault saveData(Fault fault){
+    public Fault createData(Fault fault){
         return faultRepository.saveAndFlush(fault);
+    }
+
+    public Fault updateData(Fault fault){
+        return faultRepository.save(fault);
     }
 
     public String deleteFault(Long id){

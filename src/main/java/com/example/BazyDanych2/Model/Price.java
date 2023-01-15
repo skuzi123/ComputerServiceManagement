@@ -15,13 +15,11 @@ public class Price extends IdEntity{
     @ManyToOne
     @JoinColumn(name = "fault_id",
                 referencedColumnName = "id")
-    @JsonIgnore
     private Fault fault;
 
     @ManyToOne
     @JoinColumn(name = "tax_id",
                 referencedColumnName = "id")
-    @JsonIgnore
     private Tax tax;
     @Column(name = "price",
             nullable = false,

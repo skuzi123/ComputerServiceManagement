@@ -28,8 +28,12 @@ public class PersonalDataService {
          return foundData.orElse(null); //throw -> null
      }
 
-    public PersonalData saveData(PersonalData personalData){
+    public PersonalData createData(PersonalData personalData){
         return personalDataRepository.saveAndFlush(personalData);
+    }
+
+    public PersonalData updateData(PersonalData personalData){
+        return personalDataRepository.save(personalData);
     }
 
     public String deleteData(Long id){

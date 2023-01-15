@@ -27,7 +27,7 @@ public class Tax extends IdEntity{
             precision = 2,
             scale = 3)
     private double countryTax;
-
+    @JsonIgnore
     @OneToMany(mappedBy = "tax",
             cascade = {CascadeType.MERGE, CascadeType.REMOVE}, fetch = FetchType.EAGER)
     private List<Price> prices = new ArrayList<>();

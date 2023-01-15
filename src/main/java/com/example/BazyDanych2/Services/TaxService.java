@@ -1,5 +1,8 @@
 package com.example.BazyDanych2.Services;
 
+import com.example.BazyDanych2.Model.Computer;
+import com.example.BazyDanych2.Model.ComputerParts;
+import com.example.BazyDanych2.Model.Part;
 import com.example.BazyDanych2.Model.Tax;
 import com.example.BazyDanych2.Repositories.TaxRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,9 +29,14 @@ public class TaxService {
         return foundTax.orElse(null);
     }
 
-    public Tax saveTax(Tax tax){
+    public Tax createTax(Tax tax){
         return taxRepository.saveAndFlush(tax);
     }
+
+    public Tax updateTax(Tax tax){
+        return taxRepository.save(tax);
+    }
+
 
     public String deleteTax(Long id){
         Tax taxToDelete = getTaxById(id);

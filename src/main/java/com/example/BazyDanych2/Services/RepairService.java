@@ -27,8 +27,12 @@ public class RepairService {
         return foundRepair.orElse(null);
     }
 
-    public Repair saveData(Repair repair){
+    public Repair createData(Repair repair){
         return repairRepository.saveAndFlush(repair);
+    }
+
+    public Repair updateData(Repair repair){
+        return repairRepository.save(repair);
     }
 
     public String deleteRepair(Long id){

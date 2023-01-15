@@ -32,7 +32,13 @@ public class FaultController {
     @PostMapping(path = "/post")
     public ResponseEntity<Fault> addFault(@RequestBody Fault fault){
 
-        return ResponseEntity.ok(faultService.saveData(fault));
+        return ResponseEntity.ok(faultService.createData(fault));
+    }
+
+    @PutMapping(path = "/post")
+    public ResponseEntity<Fault> updateFault(@RequestBody Fault fault){
+
+        return ResponseEntity.ok(faultService.updateData(fault));
     }
     @DeleteMapping(path = "/delete/{id}")
     public ResponseEntity<String> deleteFault(@PathVariable("id") Long id){

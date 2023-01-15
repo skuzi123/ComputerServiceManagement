@@ -32,8 +32,12 @@ public class PriceService {
                 .orElseThrow();
     }
 
-    public Price savePrice(Price price){
+    public Price createPrice(Price price){
         return priceRepository.saveAndFlush(price);
+    }
+
+    public Price updatePrice(Price price){
+        return priceRepository.save(price);
     }
 
     public String deletePrice(Long id){

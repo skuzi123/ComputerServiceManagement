@@ -1,5 +1,6 @@
 package com.example.BazyDanych2.Model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -18,7 +19,7 @@ public class RepairLocation extends IdEntity{
             nullable = false,
             length = 30)
     private String locationName;
-
+    @JsonIgnore
     @OneToMany(mappedBy = "repairLocation",
             cascade = {CascadeType.MERGE, CascadeType.REMOVE}, fetch = FetchType.EAGER)
     private List<Repair> repairs = new ArrayList<>();

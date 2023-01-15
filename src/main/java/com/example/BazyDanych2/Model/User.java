@@ -14,7 +14,7 @@ import java.util.List;
 @Entity
 @Table(name = "User")
 public class User extends IdEntity{
-    @ManyToOne(cascade = {CascadeType.MERGE})
+    @ManyToOne
     @JoinColumn(name = "personal_id",
             referencedColumnName = "id")
     private PersonalData personalData;
@@ -32,11 +32,10 @@ public class User extends IdEntity{
             nullable = false)
     @Enumerated(EnumType.STRING)
     private Role role;
-
+    @JsonIgnore
     @OneToMany(mappedBy = "user",
             cascade = {CascadeType.MERGE, CascadeType.REMOVE}, fetch = FetchType.EAGER)
     private List<Repair> repairs = new ArrayList<>();
-
 
 
     public void setPersonalData(PersonalData personalData) {

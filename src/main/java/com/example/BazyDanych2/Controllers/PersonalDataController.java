@@ -13,7 +13,7 @@ import java.util.List;
 @RequestMapping("/personalData/")
 public class PersonalDataController {
     private final PersonalDataService personalDataService;
-@Autowired
+    @Autowired
     public PersonalDataController(PersonalDataService personalDataService) {
         this.personalDataService = personalDataService;
     }
@@ -32,7 +32,13 @@ public class PersonalDataController {
     @PostMapping(path = "/post")
     public ResponseEntity<PersonalData> addPersonalData(@RequestBody PersonalData personalData){
 
-        return ResponseEntity.ok(personalDataService.saveData(personalData));
+        return ResponseEntity.ok(personalDataService.createData(personalData));
+    }
+
+    @PutMapping(path = "/update")
+    public ResponseEntity<PersonalData> updatePersonalData(@RequestBody PersonalData personalData){
+
+        return ResponseEntity.ok(personalDataService.updateData(personalData));
     }
     @DeleteMapping(path = "/delete/{id}")
     public ResponseEntity<String> deletePersonalData(@PathVariable("id") Long id){

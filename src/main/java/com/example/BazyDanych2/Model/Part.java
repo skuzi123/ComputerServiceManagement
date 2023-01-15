@@ -20,9 +20,9 @@ public class Part extends IdEntity{
             length = 60)
     private String partName;
 
+    @JsonIgnore
     @OneToMany(mappedBy = "part",
             cascade = {CascadeType.MERGE, CascadeType.REMOVE}, fetch = FetchType.EAGER)
-    @JsonIgnore
     private List<ComputerParts> computerParts = new ArrayList<>();
 
 }
