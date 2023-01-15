@@ -24,7 +24,7 @@ public class RepairService {
 
     public Repair getRepairById(Long id){
         Optional<Repair> foundRepair = repairRepository.findById(id);
-        return foundRepair.orElseThrow();
+        return foundRepair.orElse(null);
     }
 
     public Repair saveData(Repair repair){

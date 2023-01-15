@@ -25,15 +25,10 @@ public class Computer extends IdEntity{
 
     @OneToMany(mappedBy = "computer",
             cascade = {CascadeType.MERGE, CascadeType.REMOVE}, fetch = FetchType.EAGER)
+    @JsonIgnore
     private List<ComputerParts> computerParts = new ArrayList<>();
     @OneToMany(mappedBy = "computer",
             cascade = {CascadeType.MERGE, CascadeType.REMOVE}, fetch = FetchType.EAGER)
     private List<Repair> repairs = new ArrayList<>();
-
-    //  @Column(name = "client_id",
-//            nullable = false)
-//    private int clientId;
-
-
 
 }

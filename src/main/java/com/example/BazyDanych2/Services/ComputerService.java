@@ -25,7 +25,7 @@ public class ComputerService {
 
     public Computer getComputerById(Long id){
         Optional<Computer> foundComputer = computerRepository.findById(id);
-        return foundComputer.orElseThrow();
+        return foundComputer.orElse(null);
     }
 
     public Computer getComputerByUserId(Long id){

@@ -5,6 +5,7 @@ import lombok.*;
 import org.hibernate.annotations.GenericGenerator;
 
 @Getter
+@Setter
 @MappedSuperclass
 public abstract class IdEntity {
 

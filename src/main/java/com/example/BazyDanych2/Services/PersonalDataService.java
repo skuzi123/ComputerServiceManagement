@@ -25,7 +25,7 @@ public class PersonalDataService {
 
      public PersonalData getDataById(Long id){
          Optional<PersonalData> foundData = personalDataRepository.findById(id);
-         return foundData.orElseThrow();
+         return foundData.orElse(null); //throw -> null
      }
 
     public PersonalData saveData(PersonalData personalData){

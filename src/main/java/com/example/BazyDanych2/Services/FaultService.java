@@ -23,7 +23,7 @@ public class FaultService {
 
     public Fault getFaultById(Long id){
         Optional<Fault> foundFault = faultRepository.findById(id);
-        return foundFault.orElseThrow();
+        return foundFault.orElse(null);
     }
 
     public Fault saveData(Fault fault){

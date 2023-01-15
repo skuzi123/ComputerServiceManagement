@@ -1,5 +1,6 @@
 package com.example.BazyDanych2.Model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -35,4 +36,10 @@ public class User extends IdEntity{
     @OneToMany(mappedBy = "user",
             cascade = {CascadeType.MERGE, CascadeType.REMOVE}, fetch = FetchType.EAGER)
     private List<Repair> repairs = new ArrayList<>();
+
+
+
+    public void setPersonalData(PersonalData personalData) {
+        this.personalData = personalData;
+    }
 }

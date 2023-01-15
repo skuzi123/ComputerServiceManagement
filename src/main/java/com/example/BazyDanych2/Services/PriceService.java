@@ -24,7 +24,7 @@ public class PriceService {
 
     public Price getPriceById(Long id){
         Optional<Price> foundPrice = priceRepository.findById(id);
-        return foundPrice.orElseThrow();
+        return foundPrice.orElse(null);
     }
 
     public Price getPriceByFaultId(Long id){

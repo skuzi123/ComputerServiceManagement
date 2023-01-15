@@ -1,5 +1,6 @@
 package com.example.BazyDanych2.Model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -21,6 +22,7 @@ public class Part extends IdEntity{
 
     @OneToMany(mappedBy = "part",
             cascade = {CascadeType.MERGE, CascadeType.REMOVE}, fetch = FetchType.EAGER)
+    @JsonIgnore
     private List<ComputerParts> computerParts = new ArrayList<>();
 
 }

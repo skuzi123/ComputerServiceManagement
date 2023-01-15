@@ -26,7 +26,7 @@ public class ComputerPartsService {
 
     public ComputerParts getComputerPartsById(Long id){
         Optional<ComputerParts> foundComputersParts = computerPartsRepository.findById(id);
-        return foundComputersParts.orElseThrow();
+        return foundComputersParts.orElse(null);
     }
 
     public ComputerParts getComputerPartsByClientId(Long id){

@@ -24,12 +24,12 @@ public class UserService {
 
     public User getUserById(Long id){
         Optional<User> foundUser = userRepository.findById(id);
-        return foundUser.orElseThrow();
+        return foundUser.orElse(null);
     }
 
     public User getUserByWorkName(String workName){
         return userRepository.findByWorkName(workName)
-                .orElseThrow();
+                .orElse(null);
     }
 
 

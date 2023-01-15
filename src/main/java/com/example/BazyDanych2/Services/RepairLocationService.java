@@ -25,7 +25,7 @@ public class RepairLocationService {
 
     public RepairLocation getRepairLocationById(Long id){
         Optional<RepairLocation> foundRepairLocation = repairLocationRepository.findById(id);
-        return foundRepairLocation.orElseThrow();
+        return foundRepairLocation.orElse(null);
     }
 
     public RepairLocation getRepairLocationByLocationName(String locationName){

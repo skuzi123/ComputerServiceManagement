@@ -1,7 +1,11 @@
 package com.example.BazyDanych2.Controllers;
 
+import com.example.BazyDanych2.Model.Fault;
+import com.example.BazyDanych2.Model.Tax;
 import com.example.BazyDanych2.Model.Price;
+import com.example.BazyDanych2.Services.FaultService;
 import com.example.BazyDanych2.Services.PriceService;
+import com.example.BazyDanych2.Services.TaxService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -12,10 +16,14 @@ import java.util.List;
 @RequestMapping("/prices/")
 public class PriceController {
     private final PriceService priceService;
+    private final TaxService taxService;
+    private final FaultService faultService;
 @Autowired
-    public PriceController(PriceService priceService) {
+    public PriceController(PriceService priceService, TaxService taxService, FaultService faultService) {
         this.priceService = priceService;
-    }
+        this.taxService = taxService;
+        this.faultService = faultService;
+}
 
     @GetMapping("/getAll")
     public List<Price> getAllPrices(){
@@ -30,7 +38,14 @@ public class PriceController {
 
     @PostMapping(path = "/post")
     public ResponseEntity<Price> addPrice(@RequestBody Price price){
-
+       Tax tax = price.getTax();
+       Fault fault = price.getFault();
+       if(taxService.getTaxById(tax.getId()) == null){
+           taxService.saveTax(tax);
+       }
+        if(faultService.getFaultById(fault.getId()) == null){
+            faultService.saveData(fault);
+        }
         return ResponseEntity.ok(priceService.savePrice(price));
     }
     @DeleteMapping(path = "/delete/{id}")

@@ -23,7 +23,7 @@ public class TaxService {
 
     public Tax getTaxById(Long id){
         Optional<Tax> foundTax = taxRepository.findById(id);
-        return foundTax.orElseThrow();
+        return foundTax.orElse(null);
     }
 
     public Tax saveTax(Tax tax){

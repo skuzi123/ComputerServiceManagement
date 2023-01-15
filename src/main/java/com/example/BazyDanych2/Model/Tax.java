@@ -20,7 +20,7 @@ public class Tax extends IdEntity{
             length = 3,
             precision = 2,
             scale = 3)
-    private double backup;
+    private double shopTax;
     @Column(name = "Country_tax",
             nullable = false,
             length = 3,

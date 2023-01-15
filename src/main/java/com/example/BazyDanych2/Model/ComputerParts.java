@@ -12,16 +12,16 @@ import lombok.*;
 @Entity
 @Table(name = "Computer_parts")
 public class ComputerParts extends IdEntity{
+
     @ManyToOne(cascade = {CascadeType.MERGE})
     @JoinColumn(name = "computer_id",
                 referencedColumnName = "id")
-    @JsonIgnore
     private Computer computer;
 
     @ManyToOne(cascade = {CascadeType.MERGE})
     @JoinColumn(name = "part_type",
                 referencedColumnName = "id")
-    @JsonIgnore
+//    @JsonIgnore
     private Part part;
 
 

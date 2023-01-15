@@ -25,7 +25,7 @@ public class PartService {
 
     public Part getPartById(Long id){
         Optional<Part> foundPart = partRepository.findById(id);
-        return foundPart.orElseThrow();
+        return foundPart.orElse(null);
     }
 
     public Part getPartByPartName(String partName){
