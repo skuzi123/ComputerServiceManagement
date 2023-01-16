@@ -40,27 +40,6 @@ public class RepairController {
         return ResponseEntity.ok(repairService.getRepairById(id));
     }
 
-//    @PostMapping(path = "/post")
-//    public ResponseEntity<Repair> addRepair(@RequestBody Repair repair){
-//        RepairLocation repairLocation = repair.getRepairLocation();
-//        Fault fault = repair.getFault();
-//        User user = repair.getUser();
-//        Computer computer = repair.getComputer();
-//        if(repairLocationService.getRepairLocationById(repairLocation.getId()) == null){
-//            repairLocationService.saveRepairLocation(repairLocation);
-//        }
-//        if(faultService.getFaultById(fault.getId()) == null){
-//            faultService.saveData(fault);
-//        }
-//        if(userService.getUserById(user.getId()) == null){
-//            userService.saveUser(user);
-//        }
-//        if(computerService.getComputerById(computer.getId()) == null){
-//            computerService.saveComputer(computer);
-//        }
-//        return ResponseEntity.ok(repairService.saveData(repair));
-//    }
-
     @PostMapping(path = "/post")
     public ResponseEntity<Repair> addRepair(@RequestBody Repair repair){
         return ResponseEntity.ok(repairService.createData(repair));

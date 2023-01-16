@@ -50,19 +50,6 @@ public class ComputerPartsController {
         return ResponseEntity.ok(computerPartsService.updateComputerParts(computerParts));
     }
 
-
-//    @PostMapping(path = "/post")
-//    public ResponseEntity<ComputerParts> addComputerParts(@RequestBody ComputerParts computerParts){
-//        Part part = computerParts.getPart();
-//        Computer computer = computerParts.getComputer();
-//        if(partService.getPartById(part.getId()) == null){
-//            partService.createPart(part);
-//        }
-//        if(computerService.getComputerById(computer.getId()) == null){
-//            computerService.saveComputer(computer);
-//        }
-//        return ResponseEntity.ok(computerPartsService.saveComputerParts(computerParts));
-//    }
     @DeleteMapping(path = "/delete/{id}")
     public ResponseEntity<String> deleteComputerParts(@PathVariable("id") Long id){
 

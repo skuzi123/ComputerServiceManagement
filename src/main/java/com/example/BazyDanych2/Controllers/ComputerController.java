@@ -32,14 +32,6 @@ public class ComputerController {
         return ResponseEntity.ok(computerService.getComputerById(id));
     }
 
-//    @PostMapping(path = "/post")
-//    public ResponseEntity<Computer> addComputer(@RequestBody Computer computer){
-//         User user = computer.getUser();
-//         if(userService.getUserById(user.getId()) == null){
-//             userService.createUser(user);
-//         }
-//        return ResponseEntity.ok(computerService.createComputer(computer));
-//    }
 
     @PostMapping(path = "/post")
     public ResponseEntity<Computer> addComputer(@RequestBody Computer computer){

@@ -47,17 +47,6 @@ public class PartService {
         return this.partRepository.save(part);
     }
 
-//    public Part savePart(Part part, Long computerId){
-//        Computer computer = computerService.getComputerById(computerId);
-//        Part resultPart = partRepository.save(part);
-//
-//        ComputerParts computerParts = new ComputerParts();
-//        computerParts.setPart(resultPart);
-//        computerParts.setComputer(computer);
-//        computerPartsService.saveComputerParts(computerParts);
-//
-//        return resultPart;
-//    }
 
     public String deletePart(Long id){
         Part partToDelete = getPartById(id);

@@ -36,18 +36,6 @@ public class PriceController {
         return ResponseEntity.ok(priceService.getPriceById(id));
     }
 
-//    @PostMapping(path = "/post")
-//    public ResponseEntity<Price> addPrice(@RequestBody Price price){
-//       Tax tax = price.getTax();
-//       Fault fault = price.getFault();
-//       if(taxService.getTaxById(tax.getId()) == null){
-//           taxService.saveTax(tax);
-//       }
-//        if(faultService.getFaultById(fault.getId()) == null){
-//            faultService.saveData(fault);
-//        }
-//        return ResponseEntity.ok(priceService.savePrice(price));
-//    }
 
     @PostMapping(path = "/post")
     public ResponseEntity<Price> addPrice(@RequestBody Price price){

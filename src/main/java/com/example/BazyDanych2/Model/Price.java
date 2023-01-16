@@ -27,13 +27,4 @@ public class Price extends IdEntity{
             scale = 6)
     private double price;
 
-
-
-
-//    @Column(name = "fault_id",
-//            nullable = false)
-//    private int faultId;
-//    @Column(name = "tax_id",
-//            nullable = false)
-//    private int taxId;
 }
