@@ -7,8 +7,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 @Service
 public class RepairService {
@@ -20,6 +22,30 @@ public class RepairService {
     }
     public List<Repair> getAll(){
         return repairRepository.findAll();
+    }
+
+    public List<Repair> getAllEndedRepairs(){
+        return repairRepository.findAll().stream()
+                .filter(n -> n.getRepairEnd() != null)
+                .collect(Collectors.toList());
+    }
+
+    public List<Repair> getAllNotEndedRepairs(){
+        return repairRepository.findAll().stream()
+                .filter(n -> n.getRepairEnd() == null)
+                .collect(Collectors.toList());
+    }
+
+    public List<Repair> getBackups(){
+        return repairRepository.findAll().stream()
+                .filter(n -> n.getBackup().equals("yes"))
+                .collect(Collectors.toList());
+    }
+
+    public List<Repair> getNoBackups(){
+        return repairRepository.findAll().stream()
+                .filter(n -> n.getBackup().equals("no"))
+                .collect(Collectors.toList());
     }
 
     public Repair getRepairById(Long id){

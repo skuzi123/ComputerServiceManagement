@@ -7,9 +7,11 @@ import com.example.BazyDanych2.Model.Repair;
 import com.example.BazyDanych2.Model.RepairLocation;
 import com.example.BazyDanych2.Services.*;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpEntity;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.time.LocalDate;
 import java.util.List;
 
 @RestController
@@ -39,7 +41,22 @@ public class RepairController {
 
         return ResponseEntity.ok(repairService.getRepairById(id));
     }
-
+    @GetMapping(path = "/getAllEnded")
+    public ResponseEntity<List<Repair>> getAllEndedRepairs(){
+           return ResponseEntity.ok(repairService.getAllEndedRepairs());
+    }
+    @GetMapping(path = "/getAllNotEnded")
+    public ResponseEntity<List<Repair>> getAllNotEndedRepairs(){
+        return ResponseEntity.ok(repairService.getAllNotEndedRepairs());
+    }
+    @GetMapping(path = "/getBackups")
+    public ResponseEntity<List<Repair>> getBackups(){
+        return ResponseEntity.ok(repairService.getBackups());
+    }
+    @GetMapping(path = "/getNoBackups")
+    public ResponseEntity<List<Repair>> getNoBackups(){
+        return ResponseEntity.ok(repairService.getNoBackups());
+    }
     @PostMapping(path = "/post")
     public ResponseEntity<Repair> addRepair(@RequestBody Repair repair){
         return ResponseEntity.ok(repairService.createData(repair));
