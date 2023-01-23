@@ -15,15 +15,11 @@ import java.util.List;
 @RequestMapping("/computerParts/")
 public class ComputerPartsController {
     private final ComputerPartsService computerPartsService;
-    private final PartService partService;
 
-    private final ComputerService computerService;
 
     @Autowired
-    public ComputerPartsController(ComputerPartsService computerPartsService, PartService partService, ComputerService computerService) {
+    public ComputerPartsController(ComputerPartsService computerPartsService) {
         this.computerPartsService = computerPartsService;
-        this.partService = partService;
-        this.computerService = computerService;
     }
 
     @GetMapping("/getAll")
@@ -35,6 +31,12 @@ public class ComputerPartsController {
     public ResponseEntity<ComputerParts> getComputerPartsById(@PathVariable Long id){
 
         return ResponseEntity.ok(computerPartsService.getComputerPartsById(id));
+    }
+
+    @GetMapping(path = "/computerId/{id}")
+    public ResponseEntity<ComputerParts> getComputerPartsByComputerId(@PathVariable Long id){
+
+        return ResponseEntity.ok(computerPartsService.getComputerPartsByComputerId(id));
     }
 
     @PostMapping(path = "/post")

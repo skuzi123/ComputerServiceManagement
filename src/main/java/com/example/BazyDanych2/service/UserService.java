@@ -12,7 +12,7 @@ import java.util.List;
 
 @Service
 public class UserService {
-    private static final String USER_NOT_FOUND = "User with this workName doesn't exist!!!";
+    private static final String USER_NOT_FOUND = "User with this id doesn't exist!!!";
     private UserRepository userRepository;
     @Autowired
     public UserService(@Qualifier("userRepository") UserRepository userRepository) {
